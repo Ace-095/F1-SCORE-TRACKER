@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Stats Hub | Formula 1 Statistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Video -->
+    <!-- To use your own F1 video: Replace 'bg-video.mp4' with your video file path -->
+    <!-- You can download free F1 videos from: https://pixabay.com/videos/search/formula-1/ -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="bg-video.mp4" type="video/mp4">
+            <!-- Fallback: If video doesn't load, CSS gradient background will show -->
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Side Navigation -->
+    <nav class="side-nav">
+        <div class="nav-logo">
+            <span class="logo-f1">F1</span>
+            <span class="logo-text">Hub</span>
+        </div>
+        <ul class="nav-menu">
+            <li><button class="nav-item active" data-view="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button></li>
+            <li><button class="nav-item" data-view="drivers">
+                <span class="nav-icon">🏎️</span>
+                <span class="nav-label">Drivers</span>
+            </button></li>
+            <li><button class="nav-item" data-view="constructors">
+                <span class="nav-icon">🏁</span>
+                <span class="nav-label">Constructors</span>
+            </button></li>
+            <li><button class="nav-item" data-view="races">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Races</span>
+            </button></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home View -->
+        <section id="home-view" class="view active">
+            <div class="home-container">
+                <h1 class="home-title">
+                    <span class="title-line">Formula 1</span>
+                    <span class="title-line red">Stats Hub</span>
+                </h1>
+                
+                <div class="news-section">
+                    <h2 class="news-title">Latest F1 News</h2>
+                    <div id="news-container" class="news-grid">
+                        <!-- News cards will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drivers View -->
+        <section id="drivers-view" class="view">
+            <div class="view-header">
+                <h1 class="view-title">Drivers Championship</h1>
+                <div class="year-selector-container">
+                    <label for="drivers-year-select" class="year-label">Select Year:</label>
+                    <select id="drivers-year-select" class="year-select">
+                        <option value="current">Current Season</option>
+                    </select>
+                </div>
+            </div>
+            <div class="view-content">
+                <div id="drivers-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading drivers...</p>
+                </div>
+                <div id="drivers-content" class="drivers-grid"></div>
+            </div>
+        </section>
+
+        <!-- Constructors View -->
+        <section id="constructors-view" class="view">
+            <div class="view-header">
+                <h1 class="view-title">Constructors Championship</h1>
+                <div class="year-selector-container">
+                    <label for="constructors-year-select" class="year-label">Select Year:</label>
+                    <select id="constructors-year-select" class="year-select">
+                        <option value="current">Current Season</option>
+                    </select>
+                </div>
+            </div>
+            <div class="view-content">
+                <div id="constructors-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading constructors...</p>
+                </div>
+                <div id="constructors-content" class="constructors-grid"></div>
+            </div>
+        </section>
+
+        <!-- Races View -->
+        <section id="races-view" class="view">
+            <div class="view-header">
+                <h1 class="view-title">Race Calendar & Results</h1>
+                <div class="year-selector-container">
+                    <label for="races-year-select" class="year-label">Select Year:</label>
+                    <select id="races-year-select" class="year-select">
+                        <option value="current">Current Season</option>
+                    </select>
+                </div>
+            </div>
+            <div class="view-content">
+                <div id="races-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading races...</p>
+                </div>
+                <div id="races-content" class="races-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
